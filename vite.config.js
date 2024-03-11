@@ -1,6 +1,4 @@
 export default {
-{
-  "source": "/feedback/((?!general).*)",
-  "destination": "/api/feedback/general"
-}
+  root: "src",
+  publicDir: "../public",
 };

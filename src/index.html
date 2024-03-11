@@ -20,7 +20,7 @@
   import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
   import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
-  let scene, camera, renderer, loadingBar, controls, motorcycle, gui;
+  let scene, camera, renderer, loadingBar, controls, blaziken2, gui;
 
   init();
 
@@ -79,7 +79,7 @@
     const pmremGenerator = new THREE.PMREMGenerator( renderer );
     pmremGenerator.compileEquirectangularShader();
     
-    loader.load( 'venice_sunset_1k.hdr', ( texture ) => {
+    loader.load( 'blaziken.hdr', ( texture ) => {
       const envMap = pmremGenerator.fromEquirectangular( texture ).texture;
       pmremGenerator.dispose();
 
@@ -99,12 +99,12 @@
     // Load a glTF resource
     loader.load(
       // resource URL
-      'motorcycle.glb',
+      'blaziken2.glb',
       // called when the resource is loaded
       gltf => {
         const bbox = new THREE.Box3().setFromObject( gltf.scene );
                 
-        motorcycle = gltf.scene;
+        blaziken2 = gltf.scene;
                 
         scene.add( gltf.scene );
         
